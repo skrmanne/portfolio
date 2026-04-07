@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sai Kumar Reddy Manne - Applied Scientist at Amazon. Research in Computer Vision, Image Processing, and Deep Learning.">
+    <meta name="author" content="Sai Kumar Reddy Manne">
+    <meta name="keywords" content="Sai Kumar Reddy Manne, Computer Vision, Deep Learning, Image Processing, Amazon, Qualcomm, Samsung, NIT Warangal, Northeastern University">
+    <title>Sai Kumar Reddy Manne</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #fafafa;
+            --text: #222;
+            --text-secondary: #555;
+            --accent: #1772d0;
+            --accent-hover: #f09228;
+            --highlight-bg: #ffffd0;
+            --paper-bg: #fff;
+            --border: #eee;
+            --shadow: rgba(0,0,0,0.06);
+            --radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', 'Trebuchet MS', Tahoma, sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* === LAYOUT === */
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* === HEADER / BIO === */
+        .bio {
+            display: flex;
+            gap: 36px;
+            align-items: flex-start;
+            margin-bottom: 48px;
+        }
+
+        .bio-photo {
+            flex-shrink: 0;
+        }
+
+        .bio-photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 24px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bio-photo img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .bio-text h1 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .bio-text p {
+            color: var(--text-secondary);
+            font-size: 0.97rem;
+            margin-bottom: 8px;
+        }
+
+        .bio-text .bio-description {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .bio-links {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 18px;
+        }
+
+        .bio-links a {
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .bio-links a i {
+            font-size: 0.85rem;
+        }
+
+        /* === SECTION HEADINGS === */
+        .section-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        /* === RESEARCH INTERESTS === */
+        .interests {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 36px;
+        }
+
+        /* === PUBLICATIONS === */
+        .pub-list {
+            list-style: none;
+        }
+
+        .pub-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s ease;
+        }
+
+        .pub-item:last-child {
+            border-bottom: none;
+        }
+
+        .pub-item.highlighted {
+            background: var(--highlight-bg);
+            margin: 0 -16px;
+            padding: 20px 16px;
+            border-radius: var(--radius);
+            border-bottom: none;
+        }
+
+        .pub-thumb {
+            flex-shrink: 0;
+            width: 160px;
+            height: 100px;
+            border-radius: 6px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8eaf6, #c5cae9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pub-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pub-thumb .thumb-placeholder {
+            font-size: 0.7rem;
+            color: #7986cb;
+            text-align: center;
+            padding: 8px;
+            font-weight: 600;
+        }
+
+        .pub-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .pub-title {
+            font-weight: 700;
+            font-size: 1.02rem;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .pub-title a {
+            color: var(--accent);
+        }
+
+        .pub-authors {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .pub-authors .me {
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .pub-venue {
+            font-size: 0.88rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .pub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 12px;
+        }
+
+        .pub-links a {
+            font-size: 0.85rem;
+            padding: 2px 0;
+        }
+
+        .pub-description {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+
+        /* === EXPERIENCE === */
+        .exp-list {
+            list-style: none;
+        }
+
+        .exp-item {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .exp-item:last-child {
+            border-bottom: none;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+
+        .exp-company {
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .exp-dates {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .exp-role {
+            font-size: 0.95rem;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .exp-details {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .exp-details li {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            line-height: 1.5;
+        }
+
+        /* === EDUCATION === */
+        .edu-item {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .edu-item:last-child {
+            border-bottom: none;
+        }
+
+        .edu-school {
+            font-weight: 700;
+            font-size: 1.02rem;
+        }
+
+        .edu-degree {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .edu-meta {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        /* === PATENTS === */
+        .patent-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .patent-item:last-child {
+            border-bottom: none;
+        }
+
+        .patent-id {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* === REVIEWING === */
+        .review-list {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 32px 0 24px;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--text-secondary);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 640px) {
+            .bio {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .bio-links {
+                justify-content: center;
+            }
+            .bio-photo img {
+                width: 160px;
+                height: 160px;
+            }
+            .pub-item {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .pub-thumb {
+                width: 100%;
+                height: 140px;
+            }
+            .pub-item.highlighted {
+                margin: 0 -8px;
+                padding: 16px 8px;
+            }
+            .exp-header {
+                flex-direction: column;
+            }
+            .container {
+                padding: 24px 16px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ====== BIO ====== -->
+        <div class="bio">
+            <div class="bio-photo">
+                <img src="profile.png" alt="Photo of Sai Kumar Reddy Manne">
+            </div>
+            <div class="bio-text">
+                <h1>Sai Kumar Reddy Manne</h1>
+                <p class="bio-description">
+                    I'm an Applied Scientist at <a href="https://www.amazon.com/">Amazon</a> in Seattle, working on identity-preserving generative image editing.
+                    Previously, I was a Senior Software Engineer at <a href="https://www.qualcomm.com/">Qualcomm</a>, where I accelerated neural network inference on Snapdragon chipsets.
+                    Before that, I was a Lead Engineer at <a href="https://www.samsung.com/">Samsung R&D</a>, where I designed the first-ever moiré image restoration CNN for smartphones, commercialized in Galaxy S22.
+                </p>
+                <p class="bio-description">
+                    I received my M.S. in Computer Science from <a href="https://www.northeastern.edu/">Northeastern University</a> (GPA: 4.0)
+                    and my B.Tech. in ECE from <a href="https://www.nitw.ac.in/">NIT Warangal</a>.
+                    During my masters, I worked as a Graduate Research Assistant with <a href="https://scholar.google.com/citations?user=SLNXagkAAAAJ&hl=en">Prof. Michael Wan</a>, publishing work in CVPR-W and MICCAI-W.
+                </p>
+                <p class="bio-description" style="margin-top: 4px;">
+                    I'm interested in computer vision, deep learning, computational photography, and generative AI.
+                </p>
+
+                <div class="bio-links">
+                    <a href="mailto:manne.sa@northeastern.edu"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://scholar.google.com/citations?user=DTiCl34AAAAJ&hl=en&oi=ao"><i class="fas fa-graduation-cap"></i> Scholar</a>
+                    <a href="https://www.linkedin.com/in/saikrmanne/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/saik23"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://medium.com/@saikumarreddy.manne"><i class="fab fa-medium"></i> Medium</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== PUBLICATIONS ====== -->
+        <section id="publications">
+            <h2 class="section-heading">Publications</h2>
+
+            <ul class="pub-list">
+
+                <!-- NOISe - CVPR-W 2024 (Highlighted) -->
+                <li class="pub-item highlighted">
+                    <div class="pub-thumb">
+                        <div class="thumb-placeholder">Instance<br>Segmentation</div>
+                    </div>
+                    <div class="pub-details">
+                        <div class="pub-title">
+                            <a href="https://arxiv.org/abs/2404.10171">NOISe: Nuclei-Aware Osteoclast Instance Segmentation for Mouse-to-Human Domain Transfer</a>
+                        </div>
+                        <div class="pub-authors">
+                            <span class="me">Sai Kumar Reddy Manne</span>, B. Martin, T. Roy, R. Neilson, R. Peters, M. Chillara, C.W. Lary, K.J. Motyl, &amp; M. Wan
+                        </div>
+                        <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPR-W), 2024</div>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2404.10171">arXiv</a>
+                        </div>
+                        <div class="pub-description">
+                            A generalizable medical image instance segmentation model for osteoclast identification with nuclei-aware architecture enabling mouse-to-human domain transfer.
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Infant Respiration - WACV 2026 -->
+                <li class="pub-item">
+                    <div class="pub-thumb">
+                        <div class="thumb-placeholder">Infant<br>Respiration</div>
+                    </div>
+                    <div class="pub-details">
+                        <div class="pub-title">
+                            Overcoming Small Data Limitations in Video-Based Infant Respiration Estimation
+                        </div>
+                        <div class="pub-authors">
+                            L. Song, H. Bishnoi, <span class="me">Sai Kumar Reddy Manne</span>, ... &amp; M. Wan
+                        </div>
+                        <div class="pub-venue">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2026</div>
+                    </div>
+                </li>
+
+                <!-- Sleep-Wake Classification - WACV 2025 -->
+                <li class="pub-item">
+                    <div class="pub-thumb">
+                        <div class="thumb-placeholder">Sleep-Wake<br>Classification</div>
+                    </div>
+                    <div class="pub-details">
+                        <div class="pub-title">
+                            Classification of Infant Sleep-Wake States from Natural Overnight In-Crib Sleep Videos
+                        </div>
+                        <div class="pub-authors">
+                            S. Moezzi, M. Wan, <span class="me">Sai Kumar Reddy Manne</span>, A. Mathew, S. Zhu, B. Galoaa, ... &amp; S. Ostadabbas
+                        </div>
+                        <div class="pub-venue">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2025</div>
+                    </div>
+                </li>
+
+                <!-- WB LUTs -->
+                <li class="pub-item">
+                    <div class="pub-thumb">
+                        <div class="thumb-placeholder">White<br>Balance</div>
+                    </div>
+                    <div class="pub-details">
+                        <div class="pub-title">
+                            <a href="https://arxiv.org/abs/2404.10133">WB LUTs: Contrastive Learning for White Balancing Lookup Tables</a>
+                        </div>
+                        <div class="pub-authors">
+                            <span class="me">Sai Kumar Reddy Manne</span> &amp; M. Wan
+                        </div>
+                        <div class="pub-venue">arXiv preprint, 2024</div>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2404.10133">arXiv</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- NNS Detection -->
+                <li class="pub-item">
+                    <div class="pub-thumb">
+                        <div class="thumb-placeholder">NNS<br>Detection</div>
+                    </div>
+                    <div class="pub-details">
+                        <div class="pub-title">
+                            <a href="https://arxiv.org/abs/2310.16138">Subtle Signals: Video-based Detection of Infant Non-nutritive Sucking as a Neurodevelopmental Cue</a>
+                        </div>
+                        <div class="pub-authors">
+                            S. Zhu, M. Wan, <span class="me">Sai Kumar Reddy Manne</span>, E. Zimmerman, &amp; S. Ostadabbas
+                        </div>
+                        <div class="pub-venue">Computer Vision and Image Understanding, 2024</div>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2310.16138">arXiv</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- AIRFlowNet - MICCAI-W 2023 (Highlighted) -->
+                <li class="pub-item highlighted">
+                    <div class="pub-thumb">
+                        <div class="thumb-placeholder">Optical Flow<br>Respiration</div>
+                    </div>
+                    <div class="pub-details">
+                        <div class="pub-title">
+                            <a href="https://arxiv.org/abs/2307.13110">Automatic Infant Respiration Estimation from Video: A Deep Flow-Based Algorithm and a Novel Public Benchmark</a>
+                        </div>
+                        <div class="pub-authors">
+                            <span class="me">Sai Kumar Reddy Manne</span>, S. Zhu, S. Ostadabbas, &amp; M. Wan
+                        </div>
+                        <div class="pub-venue">International Workshop on Preterm, Perinatal and Pediatric Image Analysis (MICCAI-W), 2023</div>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2307.13110">arXiv</a>
+                            <a href="https://github.com/ostadabbas/Infant-Respiration-Estimation">code</a>
+                        </div>
+                        <div class="pub-description">
+                            We introduce AIRFlowNet, a deep optical flow-based model with a novel spectral bandpass loss function, and AIR-125, a manually annotated dataset — achieving state-of-the-art infant respiration estimation with 2.9 bpm MAE.
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Camera Fusion - Springer 2019 -->
+                <li class="pub-item">
+                    <div class="pub-thumb">
+                        <div class="thumb-placeholder">Camera<br>Fusion</div>
+                    </div>
+                    <div class="pub-details">
+                        <div class="pub-title">
+                            <a href="https://link.springer.com/chapter/10.1007/978-981-15-4015-8_4">Asymmetric Wide Tele Camera Fusion for High Fidelity Digital Zoom</a>
+                        </div>
+                        <div class="pub-authors">
+                            <span class="me">Sai Kumar Reddy Manne</span>, B.P. Prasad, &amp; K.G. Rosh
+                        </div>
+                        <div class="pub-venue">International Conference on Computer Vision and Image Processing, Springer, 2019</div>
+                        <div class="pub-links">
+                            <a href="https://link.springer.com/chapter/10.1007/978-981-15-4015-8_4">paper</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+
+
+
+        <!-- ====== REVIEWING ====== -->
+        <section id="reviewing">
+            <h2 class="section-heading">Academic Service</h2>
+            <div class="review-list">
+                <strong>Reviewer:</strong> Frontiers in Physiology 2026, WACV-W 2023 &amp; 2025, BioMedical Engineering OnLine 2023, Multimedia Tools and Applications 2024.
+            </div>
+        </section>
+
+        <!-- ====== SKILLS ====== -->
+        <section id="skills">
+            <h2 class="section-heading">Technical Skills</h2>
+            <p style="font-size:0.95rem;color:var(--text-secondary);">
+                <strong>Languages:</strong> C++, Python, Java, MATLAB<br>
+                <strong>ML Frameworks:</strong> PyTorch, TensorFlow, Caffe, ONNX, OpenCL
+            </p>
+        </section>
+
+        <footer>
+            <p>
+                Sai Kumar Reddy Manne &middot;
+                <a href="https://github.com/saik23">Source</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
